@@ -1,0 +1,1013 @@
+<!doctype html>
+<html lang="zxx">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="The Den Gym Services" />
+  <meta name="keywords" content="Gym, Fitness, Services" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <title>The Den Gym | Services</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png"
+    href="{{ url_for('static', filename='img/logo.jpg') }}" />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap"
+    rel="stylesheet" />
+
+  <link
+    href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap"
+    rel="stylesheet" />
+
+  <!-- CSS -->
+  <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
+
+  <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/font-awesome.min.css') }}" />
+
+  <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/slicknav.min.css') }}" />
+
+  <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}" />
+
+  <style>
+
+    body {
+      background: #000;
+      color: #fff;
+      font-family: "Muli", sans-serif;
+      overflow-x: hidden;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    .row {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    .header-section {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 99999;
+      padding: 18px 40px;
+      background: transparent;
+    }
+
+    .header-section .container-fluid {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .header-section .row {
+      align-items: center;
+    }
+
+    /* =========================
+       LOGO
+    ========================== */
+
+    .logo {
+      position: relative;
+      z-index: 999999;
+    }
+
+    .logo img {
+      width: 110px;
+      max-width: 100%;
+      display: block;
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================== */
+
+    .nav-menu ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-align: center;
+    }
+
+    .nav-menu ul li {
+      display: inline-block;
+      margin: 0 18px;
+    }
+
+    .nav-menu ul li a {
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      transition: 0.3s;
+    }
+
+    .nav-menu ul li.active a,
+    .nav-menu ul li a:hover {
+      color: #f36100;
+    }
+
+    /* =========================
+       SOCIAL
+    ========================== */
+
+    .top-option {
+      text-align: right;
+    }
+
+    .top-option a {
+      color: #ffffff;
+      font-size: 18px;
+      margin-left: 15px;
+      transition: 0.3s;
+    }
+
+    .top-option a:hover {
+      color: #f36100;
+    }
+
+    /* =========================
+       MOBILE MENU
+    ========================== */
+
+    .slicknav_menu {
+      display: none;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .breadcrumb-section {
+      height: 100vh;
+      background-image: url('{{ url_for("static", filename="img/hero/hero-1.png") }}');
+      background-size: cover;
+      background-position: 68% center;
+      background-repeat: no-repeat;
+      position: relative;
+
+      display: flex;
+      align-items: center;
+    }
+
+    .breadcrumb-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .breadcrumb-text {
+      position: relative;
+      z-index: 2;
+      padding-left: 80px;
+    }
+
+    .breadcrumb-text span {
+      color: #f36100;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .breadcrumb-text h2 {
+      color: #fff;
+      font-size: 80px;
+      font-weight: 700;
+      line-height: 90px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .bt-option a,
+    .bt-option span {
+      font-size: 18px;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .bt-option span {
+      color: #f36100;
+    }
+
+    /* =========================
+       SECTION TITLE
+    ========================== */
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title span {
+      color: #f36100;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .section-title h2 {
+      color: #fff;
+      font-size: 48px;
+      font-weight: 700;
+      margin-top: 15px;
+    }
+
+    /* =========================
+       SERVICES
+    ========================== */
+
+    .services-section {
+      padding: 100px 0;
+      background: #111111;
+    }
+
+    .ss-pic {
+      height: 100%;
+    }
+
+    .ss-pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .ss-text {
+      background: #1b1b1b;
+      padding: 50px 35px;
+      height: 100%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .ss-text h4 {
+      color: #fff;
+      font-size: 28px;
+      margin-bottom: 20px;
+      font-weight: 700;
+      font-family: "Oswald", sans-serif;
+    }
+
+    .ss-text p {
+      color: #c4c4c4;
+      line-height: 28px;
+      margin-bottom: 0;
+    }
+
+    /* =========================
+       BANNER
+    ========================== */
+
+    .banner-section {
+      padding: 120px 0;
+      background: #000;
+      text-align: center;
+    }
+
+    .bs-text h2 {
+      color: #fff;
+      font-size: 52px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .bt-tips {
+      color: #c4c4c4;
+      margin-bottom: 30px;
+      font-size: 18px;
+    }
+
+    .primary-btn {
+      display: inline-block;
+      background: #f36100;
+      color: #fff;
+      padding: 14px 34px;
+      border-radius: 5px;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .primary-btn:hover {
+      background: #ff7b22;
+      color: #fff;
+    }
+
+    /* =========================
+       PRICING
+    ========================== */
+
+    .pricing-section {
+      padding: 100px 0 70px;
+      background: #111111;
+    }
+
+    .ps-item {
+      background: #1b1b1b;
+      text-align: center;
+      padding: 50px 30px;
+      border-radius: 18px;
+      margin-bottom: 30px;
+      transition: 0.4s;
+      height: 100%;
+    }
+
+    .ps-item:hover {
+      transform: translateY(-10px);
+      background: #222;
+    }
+
+    .ps-item h3 {
+      color: #fff;
+      margin-bottom: 20px;
+      font-size: 30px;
+      font-weight: 700;
+    }
+
+    .pi-price h2 {
+      color: #f36100;
+      font-size: 60px;
+      font-weight: 800;
+      margin-bottom: 0;
+    }
+
+    .pi-price span {
+      color: #c4c4c4;
+      display: block;
+      margin-bottom: 25px;
+    }
+
+    .ps-item ul {
+      list-style: none;
+      padding: 0;
+      margin: 30px 0;
+    }
+
+    .ps-item ul li {
+      color: #c4c4c4;
+      margin-bottom: 12px;
+      line-height: 28px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    .footer-section {
+      background: #000;
+      padding: 35px 0;
+      text-align: center;
+    }
+
+    .footer-section p {
+      margin: 0;
+      color: #999;
+      font-size: 16px;
+    }
+
+    /* =========================
+       MOBILE RESPONSIVE
+    ========================== */
+
+    @media only screen and (max-width: 767px) {
+
+      body {
+        overflow-x: hidden;
+        background: #000 !important;
+      }
+
+      .header-section {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: transparent !important;
+        padding: 18px 20px;
+        z-index: 99999;
+      }
+
+      .header-section .container-fluid {
+        padding: 0;
+        background: transparent !important;
+      }
+
+      .header-section .row {
+        background: transparent !important;
+        margin: 0;
+        align-items: center;
+      }
+
+      .nav-menu {
+        display: none !important;
+      }
+
+      .top-option {
+        display: none !important;
+      }
+
+      .slicknav_menu {
+        display: block !important;
+        background: transparent !important;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 999999;
+        padding: 0;
+      }
+
+      .slicknav_btn {
+        margin: 0;
+        background: #f36100 !important;
+        border-radius: 4px;
+        border: none !important;
+      }
+
+      .slicknav_nav {
+        background: #000 !important;
+        width: 220px;
+        margin-top: 12px;
+        border-radius: 6px;
+        padding: 10px 15px;
+        border: 1px solid #111;
+      }
+
+      .slicknav_nav ul,
+      .slicknav_nav li,
+      .slicknav_nav a {
+        background: #000 !important;
+      }
+
+      .slicknav_nav a {
+        color: #ffffff !important;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 10px 0;
+      }
+
+      .slicknav_nav a:hover {
+        background: #111 !important;
+        color: #f36100 !important;
+      }
+
+      .breadcrumb-section {
+        height: 100vh;
+        background-size: cover;
+        background-position: 70% center;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0 20px;
+      }
+
+      .breadcrumb-text {
+        padding-left: 0;
+        width: 60%;
+        margin-top: 80px;
+      }
+
+      .breadcrumb-text span {
+        font-size: 12px;
+        letter-spacing: 2px;
+      }
+
+      .breadcrumb-text h2 {
+        font-size: 40px;
+        line-height: 48px;
+        margin-top: 10px;
+      }
+
+      .bt-option a,
+      .bt-option span {
+        font-size: 14px;
+      }
+
+      .section-title h2 {
+        font-size: 32px;
+      }
+
+      .services-section,
+      .pricing-section,
+      .banner-section {
+        padding: 70px 0 40px;
+      }
+
+      .ss-text {
+        padding: 35px 25px;
+      }
+
+      .ss-text h4 {
+        font-size: 24px;
+      }
+
+      .bs-text h2 {
+        font-size: 34px;
+      }
+
+      .bt-tips {
+        font-size: 16px;
+      }
+
+      .pi-price h2 {
+        font-size: 48px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header class="header-section">
+
+    <div class="container-fluid">
+
+      <div class="row">
+
+        <!-- LOGO -->
+
+        <div class="col-lg-3 col-6">
+
+          <div class="logo">
+
+            <a href="/">
+
+              <img
+                src="{{ url_for('static', filename='img/logo.jpg') }}"
+                alt="The Den Gym Logo" />
+
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- NAVIGATION -->
+
+        <div class="col-lg-6">
+
+          <nav class="nav-menu">
+
+            <ul>
+
+              <li><a href="/">Home</a></li>
+
+              <li><a href="/about">About Us</a></li>
+
+              <li class="active">
+                <a href="/services">Services</a>
+              </li>
+
+              <li><a href="/team">Our Team</a></li>
+
+              <li><a href="/contact">Contact</a></li>
+
+            </ul>
+
+          </nav>
+
+        </div>
+
+        <!-- SOCIAL -->
+
+        <div class="col-lg-3">
+
+          <div class="top-option">
+
+            <a
+              href="https://www.facebook.com/profile.php?id=61577981671047"
+              target="_blank">
+
+              <i class="fa fa-facebook"></i>
+
+            </a>
+
+            <a
+              href="https://www.instagram.com/the_den_gym_"
+              target="_blank">
+
+              <i class="fa fa-instagram"></i>
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <!-- HERO -->
+
+  <section class="breadcrumb-section">
+
+    <div class="breadcrumb-text">
+
+      <span>WELCOME TO THE DEN</span>
+
+      <h2>SERVICES</h2>
+
+      <div class="bt-option">
+
+        <a href="/">Home</a>
+
+        <span> › Services</span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SERVICES -->
+
+  <section class="services-section">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>What We Do</span>
+
+        <h2>PUSH YOUR LIMITS FORWARD</h2>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-3 col-md-6 p-0">
+
+          <div class="ss-pic">
+
+            <img
+              src="{{ url_for('static', filename='img/services/services-1.jpg') }}"
+              alt="Personal Training" />
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 p-0">
+
+          <div class="ss-text">
+
+            <h4>Personal Training</h4>
+
+            <p>
+              Professional trainers help you achieve your body goals with
+              customized workouts.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 p-0">
+
+          <div class="ss-pic">
+
+            <img
+              src="{{ url_for('static', filename='img/services/services-2.jpg') }}"
+              alt="Group Fitness" />
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 p-0">
+
+          <div class="ss-text">
+
+            <h4>Group Fitness</h4>
+
+            <p>
+              Join energetic group classes including cardio, yoga, and
+              strength training.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 p-0">
+
+          <div class="ss-text">
+
+            <h4>Strength Training</h4>
+
+            <p>
+              Improve muscle strength with modern equipment and expert
+              guidance.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 p-0">
+
+          <div class="ss-pic">
+
+            <img
+              src="{{ url_for('static', filename='img/services/services-3.jpg') }}"
+              alt="Strength Training" />
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 p-0">
+
+          <div class="ss-text">
+
+            <h4>Body Building</h4>
+
+            <p>
+              Advanced bodybuilding programs designed for muscle growth and
+              performance.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 p-0">
+
+          <div class="ss-pic">
+
+            <img
+              src="{{ url_for('static', filename='img/services/services-4.jpg') }}"
+              alt="Body Building" />
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- BANNER -->
+
+  <section class="banner-section">
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-lg-12 text-center">
+
+          <div class="bs-text">
+
+            <h2>Exercise Until The Body Obeys</h2>
+
+            <div class="bt-tips">
+              Where health, beauty and fitness meet.
+            </div>
+
+            <a href="/contact" target="_blank" class="primary-btn">
+              Join Now
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PRICING -->
+
+  <section class="pricing-section">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>Our Plans</span>
+
+        <h2>Choose Your Pricing Plan</h2>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="ps-item">
+
+            <h3>Basic Plan</h3>
+
+            <div class="pi-price">
+
+              <h2>1499/-</h2>
+
+              <span>Monthly</span>
+
+            </div>
+
+            <ul>
+
+              <li>Cardio Zone</li>
+              <li>Locker Facility</li>
+              <li>Certified Trainers</li>
+              <li>Supplement Guidance</li>
+              <li>Unlimited Equipment</li>
+              <li>Open Workout Space 💪</li>
+              <li>Safe & Hygienic Environment</li>
+
+            </ul>
+
+            <a href="/contact" class="primary-btn">
+              Enroll Now
+            </a>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="ps-item">
+
+            <h3>Basic Plan</h3>
+
+            <div class="pi-price">
+
+              <h2>3999/-</h2>
+
+              <span>3 Months</span>
+
+            </div>
+
+            <ul>
+
+              <li>Cardio Zone</li>
+              <li>Locker Facility</li>
+              <li>Certified Trainers</li>
+              <li>Supplement Guidance</li>
+              <li>Unlimited Equipment</li>
+              <li>Open Workout Space 💪</li>
+              <li>Safe & Hygienic Environment</li>
+
+            </ul>
+
+            <a href="/contact" class="primary-btn">
+              Enroll Now
+            </a>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="ps-item">
+
+            <h3>Standard Plan</h3>
+
+            <div class="pi-price">
+
+              <h2>5999/-</h2>
+
+              <span>6 Months</span>
+
+            </div>
+
+            <ul>
+
+              <li>Cardio Zone</li>
+              <li>Locker Facility</li>
+              <li>Certified Trainers</li>
+              <li>Supplement Guidance</li>
+              <li>Unlimited Equipment</li>
+              <li>Open Workout Space 💪</li>
+              <li>Safe & Hygienic Environment</li>
+
+            </ul>
+
+            <a href="/contact" class="primary-btn">
+              Enroll Now
+            </a>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="ps-item">
+
+            <h3>Premium Plan</h3>
+
+            <div class="pi-price">
+
+              <h2>9999/-</h2>
+
+              <span>Yearly</span>
+
+            </div>
+
+            <ul>
+
+              <li>Cardio Zone</li>
+              <li>Locker Facility</li>
+              <li>Certified Trainers</li>
+              <li>Supplement Guidance</li>
+              <li>Unlimited Equipment</li>
+              <li>Open Workout Space 💪</li>
+              <li>Safe & Hygienic Environment</li>
+
+            </ul>
+
+            <a href="/contact" class="primary-btn">
+              Enroll Now
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer class="footer-section">
+
+    <div class="container">
+
+      <p>
+        ©
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        The Den Gym | Train Hard • Stay Strong 💪
+      </p>
+
+    </div>
+
+  </footer>
+
+  <!-- JS -->
+
+  <script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
+
+  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+  <script src="{{ url_for('static', filename='js/jquery.slicknav.js') }}"></script>
+
+  <!-- MOBILE MENU -->
+
+  <script>
+
+    $(document).ready(function () {
+
+      if ($(window).width() <= 767) {
+
+        $(".nav-menu").slicknav({
+          prependTo: ".header-section",
+          label: ""
+        });
+
+      }
+
+    });
+
+  </script>
+
+</body>
+
+</html>

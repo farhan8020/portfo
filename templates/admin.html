@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Den Gym | Admin Panel</title>
+
+    <!-- Bootstrap -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
+    />
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/font-awesome.min.css') }}"
+    />
+
+    <style>
+
+        body{
+            background:#111;
+            color:white;
+            font-family:Arial, sans-serif;
+            padding:40px;
+        }
+
+        h1{
+            text-align:center;
+            margin-bottom:40px;
+            font-weight:700;
+        }
+
+        .table{
+            background:#1b1b1b;
+            color:white;
+        }
+
+        .table th{
+            background:#f36100;
+            color:white;
+            border:none;
+        }
+
+        .table td{
+            vertical-align:middle;
+            border-color:#333;
+        }
+
+        .badge-custom{
+            background:#f36100;
+            padding:8px 14px;
+            border-radius:6px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>
+            <i class="fa fa-database"></i>
+            Contact Enquiries
+        </h1>
+
+        <table class="table table-bordered table-hover">
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Full Name</th>
+                    <th>Subject</th>
+                    <th>Message</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for enquiry in enquiries %}
+
+                <tr>
+
+                    <td>
+                        <span class="badge-custom">
+                            {{ enquiry.id }}
+                        </span>
+                    </td>
+
+                    <td>{{ enquiry.fullname }}</td>
+
+                    <td>{{ enquiry.subject }}</td>
+
+                    <td>{{ enquiry.message }}</td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</body>
+</html>

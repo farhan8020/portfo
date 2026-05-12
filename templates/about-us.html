@@ -1,0 +1,1112 @@
+<!doctype html>
+<html lang="zxx">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="The Den Gym About Page" />
+  <meta name="keywords" content="Gym, Fitness, Training" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <title>The Den Gym | About Us</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png"
+    href="{{ url_for('static', filename='img/logo.jpg') }}" />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap"
+    rel="stylesheet" />
+
+  <link
+    href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap"
+    rel="stylesheet" />
+
+  <!-- CSS -->
+  <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
+
+  <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/font-awesome.min.css') }}" />
+
+  <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/flaticon.css') }}" />
+
+  <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/slicknav.min.css') }}" />
+
+  <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}" />
+
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: "Muli", sans-serif;
+      overflow-x: hidden;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    .row {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    .header-section {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 99999;
+      padding: 18px 40px;
+      background: transparent;
+    }
+
+    .header-section .container-fluid {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .header-section .row {
+      align-items: center;
+    }
+
+    /* =========================
+       LOGO
+    ========================== */
+
+       .logo {
+      position: relative;
+      z-index: 999999;
+    }
+
+    .logo img {
+      width: 110px;
+      max-width: 100%;
+      display: block;
+    }
+      
+
+    /* =========================
+       NAVIGATION
+    ========================== */
+
+    .nav-menu ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-align: center;
+    }
+
+    .nav-menu ul li {
+      display: inline-block;
+      margin: 0 18px;
+    }
+
+    .nav-menu ul li a {
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      transition: 0.3s;
+    }
+
+    .nav-menu ul li.active a,
+    .nav-menu ul li a:hover {
+      color: #f36100;
+    }
+
+    /* =========================
+       SOCIAL
+    ========================== */
+
+    .top-option {
+      text-align: right;
+    }
+
+    .top-option a {
+      color: #ffffff;
+      font-size: 18px;
+      margin-left: 15px;
+      transition: 0.3s;
+    }
+
+    .top-option a:hover {
+      color: #f36100;
+    }
+
+    /* =========================
+       MOBILE MENU
+    ========================== */
+
+    .slicknav_menu {
+      display: none;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .breadcrumb-section {
+    height: 100vh;
+    background-image: url('{{ url_for("static", filename="img/hero/hero-1.png") }}');
+    background-size: cover;
+    background-position: 68% center;
+    background-repeat: no-repeat;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+}
+    .breadcrumb-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .breadcrumb-text {
+      position: relative;
+      z-index: 2;
+      padding-left: 80px;
+    }
+
+    .breadcrumb-text span {
+      color: #f36100;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .breadcrumb-text h2 {
+      color: #fff;
+      font-size: 80px;
+      font-weight: 700;
+      line-height: 90px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .bt-option a,
+    .bt-option span {
+      font-size: 18px;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .bt-option span {
+      color: #f36100;
+    }
+
+    /* =========================
+       SECTION TITLE
+    ========================== */
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title span {
+      color: #f36100;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .section-title h2 {
+      color: #fff;
+      font-size: 48px;
+      font-weight: 700;
+      margin-top: 15px;
+    }
+
+    /* =========================
+       CHOOSE US
+    ========================== */
+
+    .choseus-section {
+      background: #111111;
+      padding: 100px 0 70px;
+    }
+
+    .cs-item {
+      background: #1b1b1b;
+      padding: 40px 25px;
+      border-radius: 15px;
+      text-align: center;
+      transition: 0.4s;
+      margin-bottom: 30px;
+      min-height: 320px;
+    }
+
+    .cs-item:hover {
+      transform: translateY(-10px);
+      background: #222;
+    }
+
+    .cs-item span {
+      font-size: 55px;
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .cs-item h4 {
+      color: #fff;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .cs-item p {
+      color: #c4c4c4;
+      line-height: 28px;
+    }
+
+    /* =========================
+       ABOUT SECTION
+    ========================== */
+
+    .aboutus-section {
+      padding: 100px 0;
+      background: #000;
+    }
+
+    .about-video img {
+      width: 100%;
+      border-radius: 20px;
+    }
+
+    .about-text {
+      padding-left: 40px;
+    }
+
+    .about-text .section-title {
+      text-align: left;
+    }
+
+    .about-text p {
+      color: #c4c4c4;
+      font-size: 17px;
+      line-height: 32px;
+      margin-bottom: 20px;
+    }
+/* =========================
+   TEAM SECTION
+========================== */
+
+.team-section {
+  padding: 100px 0 70px;
+  background: #111111;
+}
+
+.ts-item {
+  background: #000;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  text-align: center;
+
+  /* FIX CARD HEIGHT */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* IMAGE */
+
+/* IMAGE */
+
+.ts-item img {
+  width: 100%;
+  height: auto;
+
+  /* KEEP ORIGINAL QUALITY */
+  object-fit: contain;
+
+  display: block;
+
+  border-radius: 20px 20px 0 0;
+}
+/* FIX LAST IMAGE FACE */
+
+.farhan-img {
+  object-position: center top !important;
+}
+
+/* TEXT BOX FIXED BELOW IMAGE */
+
+.ts_text {
+  background: #000;
+  padding: 20px 15px;
+  text-align: center;
+
+  position: static !important;
+  transform: none !important;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* NAME */
+
+.ts_text h4 {
+  color: #ffffff;
+  margin-bottom: 8px;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: "Oswald", sans-serif;
+}
+
+/* DESIGNATION */
+
+.ts_text span {
+  color: #f36100;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* REMOVE ALL HOVER EFFECTS */
+
+.ts-item:hover {
+  transform: none !important;
+}
+
+.ts-item:hover .ts_text {
+  transform: none !important;
+}
+    /* =========================
+       FOOTER
+    ========================== */
+
+    .footer-section {
+      background: #000;
+      padding: 35px 0;
+      text-align: center;
+    }
+
+    .footer-section p {
+      margin: 0;
+      color: #999;
+      font-size: 16px;
+    }
+    /* =========================
+   STATS SECTION
+========================== */
+
+.stats-section {
+  background: #0d0d0d;
+  padding: 90px 0 60px;
+}
+
+.stat-item {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.stat-item h2 {
+  color: #f36100;
+  font-size: 60px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  font-family: "Oswald", sans-serif;
+}
+
+.stat-item p {
+  color: #c4c4c4;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* =========================
+   TRANSFORMATION SECTION
+========================== */
+
+.transformation-section {
+  background: #000;
+  padding: 100px 0;
+}
+
+.transformation-box {
+  background: #111111;
+  padding: 50px 40px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.transformation-box h2 {
+  color: #fff;
+  font-size: 42px;
+  margin-bottom: 20px;
+  font-family: "Oswald", sans-serif;
+}
+
+.transformation-box p {
+  color: #c4c4c4;
+  font-size: 17px;
+  line-height: 32px;
+  margin-bottom: 30px;
+}
+
+.join-btn {
+  display: inline-block;
+  background: #f36100;
+  color: #fff;
+  padding: 15px 35px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.join-btn:hover {
+  background: #ff7a1a;
+  color: #fff;
+}
+
+/* =========================
+   TIMING SECTION
+========================== */
+
+.timing-section {
+  background: #111111;
+  padding: 100px 0 70px;
+}
+
+.timing-box {
+  background: #1b1b1b;
+  border-radius: 20px;
+  padding: 40px 30px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.timing-box h4 {
+  color: #f36100;
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-family: "Oswald", sans-serif;
+}
+
+.timing-box p {
+  color: #c4c4c4;
+  font-size: 17px;
+  margin-bottom: 12px;
+}
+
+/* =========================
+   MOBILE
+========================== */
+
+@media only screen and (max-width: 767px) {
+
+  .stat-item h2 {
+    font-size: 42px;
+  }
+
+  .transformation-box {
+    padding: 40px 25px;
+  }
+
+  .transformation-box h2 {
+    font-size: 30px;
+  }
+
+}
+
+    /* =========================
+       MOBILE RESPONSIVE
+    ========================== */
+
+    @media only screen and (max-width: 767px) {
+      
+
+      body {
+        overflow-x: hidden;
+        background: #000 !important;
+      }
+
+.header-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent !important;
+  padding: 18px 20px;
+  z-index: 99999;
+}
+      .header-section .container-fluid {
+  padding: 0;
+  background: transparent !important;
+}
+
+.header-section .row {
+  background: transparent !important;
+  margin: 0;
+  align-items: center;
+}
+
+      /* .logo img {
+        width: 80px;
+      } */
+
+      .nav-menu {
+        display: none !important;
+      }
+
+      .top-option {
+        display: none !important;
+      }
+
+     .slicknav_menu {
+  display: block !important;
+  background: transparent !important;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 999999;
+  padding: 0;
+}
+
+      .slicknav_btn {
+        margin: 0;
+        background: #f36100 !important;
+        border-radius: 4px;
+        border: none !important;
+      }
+
+      .slicknav_nav {
+        background: #000 !important;
+        width: 220px;
+        margin-top: 12px;
+        border-radius: 6px;
+        padding: 10px 15px;
+        border: 1px solid #111;
+      }
+
+      .slicknav_nav ul,
+      .slicknav_nav li,
+      .slicknav_nav a {
+        background: #000 !important;
+      }
+
+      .slicknav_nav a {
+        color: #ffffff !important;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 10px 0;
+      }
+
+      .slicknav_nav a:hover {
+        background: #111 !important;
+        color: #f36100 !important;
+      }
+
+      .breadcrumb-section {
+  height: 100vh;
+  background-size: cover;
+  background-position: 68% center;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 20px;
+}
+
+     .breadcrumb-text {
+  padding-left: 0;
+  width: 60%;
+  margin-top: 80px;
+}
+
+      .breadcrumb-text span {
+        font-size: 12px;
+        letter-spacing: 2px;
+      }
+
+      .breadcrumb-text h2 {
+        font-size: 40px;
+        line-height: 48px;
+        margin-top: 10px;
+      }
+
+      .bt-option a,
+      .bt-option span {
+        font-size: 14px;
+      }
+
+      .about-text {
+        padding-left: 0;
+        margin-top: 40px;
+      }
+
+      .section-title h2 {
+        font-size: 32px;
+      }
+
+      .cs-item {
+        min-height: auto;
+      }
+
+      .ts_text h4 {
+        font-size: 20px;
+      }
+
+      .ts_text span {
+        font-size: 11px;
+      }
+
+      .team-section,
+      .aboutus-section,
+      .choseus-section {
+        padding: 70px 0 40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header-section">
+
+    <div class="container-fluid">
+
+      <div class="row">
+
+        <!-- LOGO -->
+        <div class="col-lg-3 col-6">
+
+          <div class="logo">
+
+            <a href="/">
+
+              <img
+                src="{{ url_for('static', filename='img/logo.jpg') }}"
+                alt="The Den Gym Logo" />
+
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- NAVIGATION -->
+        <div class="col-lg-6">
+
+          <nav class="nav-menu">
+
+            <ul>
+
+              <li><a href="/">Home</a></li>
+
+              <li class="active">
+                <a href="/about">About Us</a>
+              </li>
+
+              <li><a href="/services">Services</a></li>
+
+              <li><a href="/team">Our Team</a></li>
+
+              <li><a href="/contact">Contact</a></li>
+
+            </ul>
+
+          </nav>
+
+        </div>
+
+        <!-- SOCIAL -->
+        <div class="col-lg-3">
+
+          <div class="top-option">
+
+            <a
+              href="https://www.facebook.com/profile.php?id=61577981671047"
+              target="_blank">
+              <i class="fa fa-facebook"></i>
+            </a>
+
+            <a
+              href="https://www.instagram.com/the_den_gym_"
+              target="_blank">
+              <i class="fa fa-instagram"></i>
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <!-- HERO -->
+  <section class="breadcrumb-section">
+
+    <div class="breadcrumb-text">
+
+      <span>WELCOME TO THE DEN</span>
+
+      <h2>ABOUT US</h2>
+
+      <div class="bt-option">
+        <a href="/">Home</a>
+        <span> › About</span>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CHOOSE US -->
+  <section class="choseus-section">
+
+    <div class="container">
+
+      <div class="section-title">
+        <span>Why Choose Us?</span>
+        <h2>PUSH YOUR LIMITS FORWARD</h2>
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="cs-item">
+
+            <span>🏋️</span>
+
+            <h4>Modern Equipment</h4>
+
+            <p>
+              Train with advanced gym machines and premium fitness equipment.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="cs-item">
+
+            <span>🥗</span>
+
+            <h4>Nutrition Plans</h4>
+
+            <p>
+              Personalized healthy diet plans for faster body transformation.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="cs-item">
+
+            <span>💪</span>
+
+            <h4>Expert Trainers</h4>
+
+            <p>
+              Certified fitness coaches helping you achieve your goals.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="cs-item">
+
+            <span>🔥</span>
+
+            <h4>Personal Goals</h4>
+
+            <p>
+              Workout programs tailored specially for your fitness journey.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- TEAM -->
+  <section class="team-section">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>Our Team</span>
+
+        <h2>TRAIN WITH EXPERTS</h2>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-4 col-md-6">
+
+          <div class="ts-item">
+
+            <img
+              src="{{ url_for('static', filename='img/team/team-11.png') }}"
+              alt="Fitness Coach" />
+
+            <div class="ts_text">
+
+              <h4>Mr. Irfan Shaikh</h4>
+
+              <span>Fitness Coach</span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+
+          <div class="ts-item">
+
+            <img
+              src="{{ url_for('static', filename='img/team/team-2.png') }}"
+              alt="Trainer" />
+
+            <div class="ts_text">
+
+              <h4>Mr. Akib Hakib</h4>
+
+              <span>Fitness Coach</span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+
+          <div class="ts-item">
+
+            <img
+  class="farhan-img"
+  src="{{ url_for('static', filename='img/team/tea.jpeg') }}"
+  alt="Trainer" />
+
+            <div class="ts_text">
+
+              <h4>Mr. Farhan Sajjan</h4>
+
+              <span>Fitness Trainer</span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+    <!-- STATS SECTION -->
+  <section class="stats-section">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>Our Achievements</span>
+
+        <h2>THE DEN IN NUMBERS</h2>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="stat-item">
+
+            <h2>200+</h2>
+
+            <p>Happy Members</p>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="stat-item">
+
+            <h2>5+</h2>
+
+            <p>Expert Trainers</p>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="stat-item">
+
+            <h2>10+</h2>
+
+            <p>Personal Training Experience</p>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="stat-item">
+
+            <h2>100%</h2>
+
+            <p>Dedication</p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- TIMING SECTION -->
+  <section class="timing-section">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <span>Working Hours</span>
+
+        <h2>GYM TIMINGS</h2>
+
+      </div>
+
+      <div class="row justify-content-center">
+
+        <div class="col-lg-6">
+
+          <div class="timing-box">
+
+            <h4>Opening Hours</h4>
+
+            <p>Monday - Saturday : 6:00 AM - 11:00 PM</p>
+
+            <p>Sunday : Closed </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- TRANSFORMATION SECTION -->
+  <section class="transformation-section">
+
+    <div class="container">
+
+      <div class="transformation-box">
+
+        <h2>START YOUR FITNESS JOURNEY TODAY</h2>
+
+        <p>
+          At The Den Gym, we help you transform your body, improve your health,
+          and build confidence with professional trainers, modern equipment,
+          and personalized workout plans.
+        </p>
+
+        <a href="/contact" target="_blank" class="join-btn">
+          Join Now
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-section">
+
+    <div class="container">
+
+      <p>
+        ©
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        The Den Gym | Train Hard • Stay Strong 💪
+      </p>
+
+    </div>
+
+  </footer>
+
+  <!-- JS -->
+  <script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
+
+  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+  <script src="{{ url_for('static', filename='js/jquery.slicknav.js') }}"></script>
+
+  <!-- MOBILE MENU -->
+  <script>
+    $(document).ready(function () {
+
+      if ($(window).width() <= 767) {
+
+        $(".nav-menu").slicknav({
+          prependTo: ".header-section",
+          label: ""
+        });
+
+      }
+
+    });
+  </script>
+
+</body>
+
+</html>

@@ -3,12 +3,12 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="description" content="The Den Gym" />
-  <meta name="keywords" content="Gym, Fitness, Training" />
+  <meta name="description" content="The Den Gym Team Page" />
+  <meta name="keywords" content="Gym, Fitness, Trainers" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-  <title>The Den Gym</title>
+  <title>The Den Gym | Our Team</title>
 
   <!-- Favicon -->
   <link
@@ -46,11 +46,6 @@
 
   <link
     rel="stylesheet"
-    href="{{ url_for('static', filename='css/owl.carousel.min.css') }}"
-  />
-
-  <link
-    rel="stylesheet"
     href="{{ url_for('static', filename='css/slicknav.min.css') }}"
   />
 
@@ -77,7 +72,9 @@
       margin-right: 0;
     }
 
-    /* HEADER */
+    /* =========================
+       HEADER
+    ========================== */
 
     .header-section {
       position: absolute;
@@ -98,7 +95,14 @@
       align-items: center;
     }
 
-    /* LOGO */
+    /* =========================
+       LOGO
+    ========================== */
+
+    .logo {
+      position: relative;
+      z-index: 999999;
+    }
 
     .logo img {
       width: 110px;
@@ -106,7 +110,9 @@
       display: block;
     }
 
-    /* NAVIGATION */
+    /* =========================
+       NAVIGATION
+    ========================== */
 
     .nav-menu ul {
       margin: 0;
@@ -133,7 +139,9 @@
       color: #f36100;
     }
 
-    /* SOCIAL */
+    /* =========================
+       SOCIAL
+    ========================== */
 
     .top-option {
       text-align: right;
@@ -150,40 +158,44 @@
       color: #f36100;
     }
 
-    /* MOBILE MENU */
+    /* =========================
+       MOBILE MENU
+    ========================== */
 
     .slicknav_menu {
       display: none;
     }
 
-    /* HERO */
+    /* =========================
+       HERO
+    ========================== */
 
-    .hero-section {
+    .breadcrumb-section {
       height: 100vh;
       background-image: url('{{ url_for("static", filename="img/hero/hero-1.png") }}');
       background-size: cover;
-      background-position: center;
+      background-position: 68% center;
       background-repeat: no-repeat;
       position: relative;
+
       display: flex;
       align-items: center;
     }
 
-    .hero-section::before {
+    .breadcrumb-section::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.65);
+      background: rgba(0, 0, 0, 0.6);
     }
 
-    .hero-text {
+    .breadcrumb-text {
       position: relative;
       z-index: 2;
       padding-left: 80px;
-      max-width: 650px;
     }
 
-    .hero-text span {
+    .breadcrumb-text span {
       color: #f36100;
       font-size: 18px;
       font-weight: 700;
@@ -191,35 +203,34 @@
       text-transform: uppercase;
     }
 
-    .hero-text h1 {
+    .breadcrumb-text h2 {
       color: #fff;
       font-size: 80px;
       font-weight: 700;
       line-height: 90px;
       margin-top: 20px;
-      margin-bottom: 30px;
-      font-family: "Oswald", sans-serif;
+      margin-bottom: 20px;
     }
 
-    .primary-btn {
-      display: inline-block;
-      font-size: 14px;
-      font-weight: 700;
-      padding: 16px 32px;
-      color: #ffffff;
-      background: #f36100;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: 0.3s;
-      border-radius: 5px;
-    }
-
-    .primary-btn:hover {
-      background: #ff7a1a;
+    .bt-option a,
+    .bt-option span {
+      font-size: 18px;
       color: #fff;
+      font-weight: 600;
     }
 
-    /* SECTION TITLE */
+    .bt-option span {
+      color: #f36100;
+    }
+
+    /* =========================
+       TEAM SECTION
+    ========================== */
+
+    .team-section {
+      padding: 100px 0 70px;
+      background: #111111;
+    }
 
     .section-title {
       text-align: center;
@@ -239,56 +250,98 @@
       font-size: 48px;
       font-weight: 700;
       margin-top: 15px;
-      font-family: "Oswald", sans-serif;
     }
 
-    /* CHOOSE US */
-
-    .choseus-section {
-      background: #111111;
-      padding: 100px 0 70px;
-    }
-
-    .cs-item {
-      background: #1b1b1b;
-      padding: 40px 25px;
-      border-radius: 15px;
-      text-align: center;
-      transition: 0.4s;
-      margin-bottom: 30px;
-      min-height: 320px;
-    }
-
-    .cs-item:hover {
-      transform: translateY(-10px);
-      background: #222;
-    }
-
-    .cs-item span {
-      font-size: 55px;
-      display: block;
-      margin-bottom: 20px;
-    }
-
-    .cs-item h4 {
+    .primary-btn {
+      display: inline-block;
+      background: #f36100;
       color: #fff;
-      margin-bottom: 15px;
+      padding: 14px 34px;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      transition: 0.3s;
+      margin-top: 20px;
+    }
+
+    .primary-btn:hover {
+      background: #ff7b29;
+      color: #fff;
+    }
+
+    /* =========================
+       TEAM CARDS
+    ========================== */
+
+    .ts-item {
+      background: #000;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 30px;
+      text-align: center;
+
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .ts-item img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      border-radius: 20px 20px 0 0;
+    }
+
+    .farhan-img {
+      object-position: center top !important;
+    }
+
+    .ts_text {
+      background: #000;
+      padding: 20px 15px;
+      text-align: center;
+
+      position: static !important;
+      transform: none !important;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .ts_text h4 {
+      color: #ffffff;
+      margin-bottom: 8px;
+      font-size: 24px;
       font-weight: 700;
       font-family: "Oswald", sans-serif;
     }
 
-    .cs-item p {
-      color: #c4c4c4;
-      line-height: 28px;
+    .ts_text span {
+      color: #f36100;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
-    /* FOOTER */
+    .ts-item:hover {
+      transform: none !important;
+    }
+
+    .ts-item:hover .ts_text {
+      transform: none !important;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
 
     .footer-section {
       background: #000;
       padding: 35px 0;
       text-align: center;
-      border-top: 1px solid #111;
     }
 
     .footer-section p {
@@ -297,9 +350,37 @@
       font-size: 16px;
     }
 
-    /* MOBILE */
+    /* =========================
+       MOBILE RESPONSIVE
+    ========================== */
 
     @media only screen and (max-width: 767px) {
+
+      body {
+        overflow-x: hidden;
+        background: #000 !important;
+      }
+
+      .header-section {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: transparent !important;
+        padding: 18px 20px;
+        z-index: 99999;
+      }
+
+      .header-section .container-fluid {
+        padding: 0;
+        background: transparent !important;
+      }
+
+      .header-section .row {
+        background: transparent !important;
+        margin: 0;
+        align-items: center;
+      }
 
       .nav-menu {
         display: none !important;
@@ -316,34 +397,93 @@
         top: 20px;
         right: 20px;
         z-index: 999999;
+        padding: 0;
       }
 
       .slicknav_btn {
+        margin: 0;
         background: #f36100 !important;
+        border-radius: 4px;
+        border: none !important;
       }
 
-      .hero-section {
+      .slicknav_nav {
+        background: #000 !important;
+        width: 220px;
+        margin-top: 12px;
+        border-radius: 6px;
+        padding: 10px 15px;
+        border: 1px solid #111;
+      }
+
+      .slicknav_nav ul,
+      .slicknav_nav li,
+      .slicknav_nav a {
+        background: #000 !important;
+      }
+
+      .slicknav_nav a {
+        color: #ffffff !important;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 10px 0;
+      }
+
+      .slicknav_nav a:hover {
+        background: #111 !important;
+        color: #f36100 !important;
+      }
+
+      .breadcrumb-section {
+        height: 100vh;
+        background-size: cover;
+        background-position: 68% center;
+        justify-content: flex-start;
+        align-items: center;
         padding: 0 20px;
       }
 
-      .hero-text {
+      .breadcrumb-text {
         padding-left: 0;
-        margin-top: 70px;
+        width: 60%;
+        margin-top: 80px;
       }
 
-      .hero-text h1 {
-        font-size: 42px;
-        line-height: 52px;
+      .breadcrumb-text span {
+        font-size: 12px;
+        letter-spacing: 2px;
+      }
+
+      .breadcrumb-text h2 {
+        font-size: 40px;
+        line-height: 48px;
+        margin-top: 10px;
+      }
+
+      .bt-option a,
+      .bt-option span {
+        font-size: 14px;
       }
 
       .section-title h2 {
         font-size: 32px;
       }
 
+      .ts_text h4 {
+        font-size: 20px;
+      }
+
+      .ts_text span {
+        font-size: 11px;
+      }
+
+      .team-section {
+        padding: 70px 0 40px;
+      }
     }
 
   </style>
-
 </head>
 
 <body>
@@ -380,13 +520,15 @@
 
             <ul>
 
-              <li class="active"><a href="/">Home</a></li>
+              <li><a href="/">Home</a></li>
 
               <li><a href="/about">About Us</a></li>
 
               <li><a href="/services">Services</a></li>
 
-              <li><a href="/team">Our Team</a></li>
+              <li class="active">
+                <a href="/team">Our Team</a>
+              </li>
 
               <li><a href="/contact">Contact</a></li>
 
@@ -426,146 +568,104 @@
   </header>
 
   <!-- HERO -->
-  <section class="hero-section">
+  <section class="breadcrumb-section">
 
-    <div class="hero-text">
+    <div class="breadcrumb-text">
 
-      <span>SHAPE YOUR BODY</span>
+      <span>MEET OUR EXPERTS</span>
 
-      <h1>
-        BE STRONG <br>
-        TRAIN HARD
-      </h1>
+      <h2>OUR TEAM</h2>
 
-      <a href="/contact" target="_blank" class="primary-btn">
-        GET INFO
-      </a>
+      <div class="bt-option">
+        <a href="/">Home</a>
+        <span> › Team</span>
+      </div>
 
     </div>
 
   </section>
 
-  <!-- CHOOSE US -->
-  <section class="choseus-section">
+  <!-- TEAM -->
+  <section class="team-section">
 
     <div class="container">
 
       <div class="section-title">
 
-        <span>Why Choose Us?</span>
+        <span>Our Team</span>
 
-        <h2>PUSH YOUR LIMITS FORWARD</h2>
+        <h2>TRAIN WITH EXPERTS</h2>
+
+        <a href="/contact" target="_blank" class="primary-btn">
+          Appointment
+        </a>
 
       </div>
 
       <div class="row">
 
-        <!-- ITEM 1 -->
-        <div class="col-lg-3 col-md-6">
-          <div class="cs-item">
-            <span>🏋️</span>
-            <h4>Modern Equipment</h4>
-            <p>Professional gym machines and premium fitness environment.</p>
+        <div class="col-lg-4 col-md-6">
+
+          <div class="ts-item">
+
+            <img
+              src="{{ url_for('static', filename='img/team/team-11.png') }}"
+              alt="Fitness Coach"
+            />
+
+            <div class="ts_text">
+
+              <h4>Mr. Irfan Shaikh</h4>
+
+              <span>Fitness Coach</span>
+
+            </div>
+
           </div>
+
         </div>
 
-        <!-- ITEM 2 -->
-        <div class="col-lg-3 col-md-6">
-          <div class="cs-item">
-            <span>🥗</span>
-            <h4>Healthy Nutrition</h4>
-            <p>Customized nutrition plans for your fitness journey.</p>
+        <div class="col-lg-4 col-md-6">
+
+          <div class="ts-item">
+
+            <img
+              src="{{ url_for('static', filename='img/team/team-2.png') }}"
+              alt="Fitness Coach"
+            />
+
+            <div class="ts_text">
+
+              <h4>Mr. Akib Hakim</h4>
+
+              <span>Fitness Coach</span>
+
+            </div>
+
           </div>
+
         </div>
 
-        <!-- ITEM 3 -->
-        <div class="col-lg-3 col-md-6">
-          <div class="cs-item">
-            <span>💪</span>
-            <h4>Professional Training</h4>
-            <p>Expert trainers helping you achieve your fitness goals.</p>
-          </div>
-        </div>
+        <div class="col-lg-4 col-md-6">
 
-        <!-- ITEM 4 -->
-        <div class="col-lg-3 col-md-6">
-          <div class="cs-item">
-            <span>🔥</span>
-            <h4>Personalized Plans</h4>
-            <p>Workout programs designed specially for your body needs.</p>
-          </div>
-        </div>
+          <div class="ts-item">
 
-        <!-- ITEM 5 -->
-        <div class="col-lg-3 col-md-6">
-          <div class="cs-item">
-            <span>🏃</span>
-            <h4>Cardio Training</h4>
-            <p>Improve stamina and endurance with intense cardio workouts.</p>
-          </div>
-        </div>
+            <img
+              class="farhan-img"
+              src="{{ url_for('static', filename='img/team/tea.jpeg') }}"
+              alt="Fitness Trainer"
+            />
 
-        <!-- ITEM 6 -->
-        <div class="col-lg-3 col-md-6">
-          <div class="cs-item">
-            <span>🧘</span>
-            <h4>Yoga Sessions</h4>
-            <p>Relax your mind and improve flexibility through yoga classes.</p>
-          </div>
-        </div>
+            <div class="ts_text">
 
-        <!-- ITEM 7 -->
-        <div class="col-lg-3 col-md-6">
-          <div class="cs-item">
-            <span>🥇</span>
-            <h4>Body Transformation</h4>
-            <p>Complete fitness transformation programs for all body types.</p>
-          </div>
-        </div>
+              <h4>Mr. Farhan Sajjan</h4>
 
-        <!-- ITEM 8 -->
-        <div class="col-lg-3 col-md-6">
-          <div class="cs-item">
-            <span>⚡</span>
-            <h4>High Energy Workouts</h4>
-            <p>Powerful sessions designed to maximize performance and strength.</p>
-          </div>
-        </div>
+              <span>Fitness Trainer</span>
 
-        <!-- ITEM 9 -->
-        <div class="col-lg-3 col-md-6">
-          <div class="cs-item">
-            <span>🏆</span>
-            <h4>Competition Prep</h4>
-            <p>Advanced coaching for bodybuilding and fitness competitions.</p>
-          </div>
-        </div>
+            </div>
 
-        <!-- ITEM 10 -->
-        <div class="col-lg-3 col-md-6">
-          <div class="cs-item">
-            <span>🤝</span>
-            <h4>Friendly Environment</h4>
-            <p>Positive gym atmosphere that keeps you motivated every day.</p>
           </div>
-        </div>
 
-        <!-- ITEM 11 -->
-        <div class="col-lg-3 col-md-6">
-          <div class="cs-item">
-            <span>⏰</span>
-            <h4>Flexible Timing</h4>
-            <p>Workout anytime with schedules designed for busy lifestyles.</p>
-          </div>
-        </div>
-
-        <!-- ITEM 12 -->
-        <div class="col-lg-3 col-md-6">
-          <div class="cs-item">
-            <span>🚿</span>
-            <h4>Clean & Hygienic</h4>
-            <p>Daily sanitized workout zones and clean changing facilities.</p>
-          </div>
         </div>
 
       </div>
@@ -600,7 +700,6 @@
 
   <!-- MOBILE MENU -->
   <script>
-
     $(document).ready(function () {
 
       if ($(window).width() <= 767) {
@@ -613,7 +712,6 @@
       }
 
     });
-
   </script>
 
 </body>

@@ -1,81 +1,359 @@
-<!DOCTYPE html>
+```html
+<!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta content="IE=edge" http-equiv="X-UA-Compatible">
-  <meta content="width=device-width,initial-scale=1" name="viewport">
-  <meta content="description" name="description">
-  <meta name="google" content="notranslate" />
-  <meta content="Mashup templates have been developped by Orson.io team" name="author">
+  <meta charset="UTF-8" />
+  <meta name="description" content="Thank You - The Den Gym" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Disable tap highlight on IE -->
-  <meta name="msapplication-tap-highlight" content="no">
-  
-  
-  <link rel="apple-touch-icon" sizes="180x180" href="./static/assets/images/apple-icon-180x180.png">
-  <link href="./static/assets/bolt.ico" rel="icon">
+  <title>The Den Gym | Thank You</title>
 
-  <link href="" rel="stylesheet">
+  <!-- Favicon -->
+  <link
+    rel="icon"
+    type="image/png"
+    href="{{ url_for('static', filename='img/logo.jpg') }}"
+  />
 
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap"
+    rel="stylesheet"
+  />
 
-  <title>Title page</title>
+  <link
+    href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap"
+    rel="stylesheet"
+  />
 
-<link href="./static/main.550dcf66.css" rel="stylesheet"></head>
+  <!-- CSS -->
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/bootstrap.min.css') }}"
+  />
 
-<body> <!-- Add your content of header -->
-<header>
-  <nav class="navbar navbar-default active">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="./index.html" title="">
-          <img src="./static/assets/images/mashup-icon.svg" class="navbar-logo-img" alt="">
-          Mashup Template
-        </a>
-      </div>
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/font-awesome.min.css') }}"
+  />
 
-      <div class="collapse navbar-collapse" id="navbar-collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="./index.html" title="">Home</a></li>
-          <li><a href="./project.html" title="">Project</a></li>
-          <li>
-            <p>
-              <a href="./about.html" class="btn btn-default navbar-btn" title="">About</a>
-            </p>
-          </li>
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/slicknav.min.css') }}"
+  />
 
-        </ul>
-      </div> 
-    </div>
-  </nav>
-</header>
+  <style>
 
-<!-- Add your site or app content here -->
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-md-6">
+    body {
+      background: #000;
+      color: #fff;
+      font-family: "Muli", sans-serif;
+      overflow-x: hidden;
+    }
 
-        <div class="template-example">
-          <h2 class="template-title-example">Thank you for your intrest.</h2>
-          <p> We will get back to you shortly!.</p>
-          <!-- <p>This is bold and this is semi bold and <b>this is extra bold</b>. This is italic and this is extra light and this is light
-          and this is regular. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p> -->
+    a:hover {
+      text-decoration: none;
+    }
+
+    /* HEADER */
+
+    .header-section {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 9999;
+      padding: 25px 40px;
+    }
+
+    .logo img {
+      width: 110px;
+    }
+
+    .nav-menu {
+      text-align: center;
+    }
+
+    .nav-menu ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-menu ul li {
+      display: inline-block;
+      margin: 0 18px;
+    }
+
+    .nav-menu ul li a {
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      transition: 0.3s;
+    }
+
+    .nav-menu ul li a:hover {
+      color: #f36100;
+    }
+
+    .top-option {
+      text-align: right;
+    }
+
+    .top-option a {
+      color: #fff;
+      font-size: 18px;
+      margin-left: 18px;
+    }
+
+    .top-option a:hover {
+      color: #f36100;
+    }
+
+    /* THANK YOU SECTION */
+
+    .thank-section {
+      height: 100vh;
+      background-image: url('{{ url_for("static", filename="img/hero/hero-1.png") }}');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .thank-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.72);
+    }
+
+    .thank-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      padding: 20px;
+    }
+
+    .thank-content i {
+      font-size: 80px;
+      color: #f36100;
+      margin-bottom: 25px;
+    }
+
+    .thank-content h1 {
+      font-size: 68px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .thank-content p {
+      color: #c4c4c4;
+      font-size: 20px;
+      line-height: 34px;
+      margin-bottom: 35px;
+    }
+
+    .primary-btn {
+      display: inline-block;
+      padding: 14px 36px;
+      background: #f36100;
+      color: #fff;
+      font-weight: 700;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    .primary-btn:hover {
+      background: #ff7b22;
+      color: #fff;
+    }
+
+    /* FOOTER */
+
+    .footer-section {
+      background: #000;
+      padding: 35px 0;
+      text-align: center;
+    }
+
+    .footer-section p {
+      color: #999;
+      margin: 0;
+    }
+
+    /* MOBILE */
+
+    .slicknav_menu {
+      display: none;
+    }
+
+    @media only screen and (max-width: 767px) {
+
+      .slicknav_menu {
+        display: block !important;
+        background: transparent !important;
+        position: absolute;
+        top: 20px;
+        right: 15px;
+        z-index: 999999;
+      }
+
+      .slicknav_btn {
+        background-color: #f36100 !important;
+      }
+
+      .nav-menu {
+        display: none;
+      }
+
+      .slicknav_nav a {
+        color: #fff !important;
+        text-transform: uppercase;
+      }
+
+      .header-section {
+        padding: 15px;
+      }
+
+      .thank-content h1 {
+        font-size: 42px;
+      }
+
+      .thank-content p {
+        font-size: 17px;
+        line-height: 30px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header class="header-section">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+
+        <div class="col-lg-3">
+          <div class="logo">
+            <img
+              src="{{ url_for('static', filename='img/logo.jpg') }}"
+              alt="The Den Gym Logo"
+            />
+          </div>
         </div>
-    
-        
+
+        <div class="col-lg-6">
+          <nav class="nav-menu">
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About Us</a></li>
+              <li><a href="/services">Services</a></li>
+              <li><a href="/team">Our Team</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="col-lg-3">
+          <div class="top-option">
+
+            <a
+              href="https://www.facebook.com/profile.php?id=61577981671047"
+              target="_blank"
+            >
+              <i class="fa fa-facebook"></i>
+            </a>
+
+            <a
+              href="https://www.instagram.com/the_den_gym_"
+              target="_blank"
+            >
+              <i class="fa fa-instagram"></i>
+            </a>
+
+          </div>
+        </div>
 
       </div>
     </div>
-  </div> 
+  </header>
+
+  <!-- THANK YOU SECTION -->
+
+  <section class="thank-section">
+
+    <div class="thank-content">
+
+      <i class="fa fa-check-circle"></i>
+
+      <h1>Thank You!</h1>
+
+      <p>
+        Your response has been submitted successfully.
+        Our team will contact you shortly regarding your enquiry.
+      </p>
+
+      <a href="/" class="primary-btn">
+        Back To Home
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer class="footer-section">
+
+    <div class="container">
+
+      <p>
+        ©
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+
+        The Den Gym | Train Hard • Stay Strong 💪
+      </p>
+
+    </div>
+
+  </footer>
+
+  <!-- JS -->
+
+  <script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
+
+  <script src="{{ url_for('static', filename='js/jquery.slicknav.js') }}"></script>
+
+  <script>
+
+    $(document).ready(function () {
+
+      if ($(window).width() <= 767) {
+
+        $(".nav-menu").slicknav({
+          prependTo: ".header-section",
+          label: ""
+        });
+
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>
+```
